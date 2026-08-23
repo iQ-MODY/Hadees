@@ -50,21 +50,19 @@
   --ease-luxury:cubic-bezier(.16,1,.3,1);
 }
 [data-theme="light"]{
-  /* لمسات أهدأ للعين: نفس هوية النار والجمر، لكن بدرجات أعمق وأكثر دفئاً
-     تمنح تبايناً مريحاً للقراءة على خلفية فاتحة بدل الألوان الفسفورية الفاقعة */
-  --char:#f8f3ea;
-  --char-2:#ffffff;
-  --char-3:#f2e9da;
+  --char:#f6f2eb;
+  --char-2:#fffdfa;
+  --char-3:#eee6da;
   --ember-rgb:181,16,32;
   --ember-dark-rgb:122,11,23;
   --ember-light:#b8102a;
   --flame-rgb:173,110,14;
   --flame-light:#8a5a10;
-  --cream:#2b1d13;
-  --smoke:#6f5e4d;
-  --steam:rgba(60,44,28,0.32);
-  --line:rgba(40,25,10,0.12);
-  --shadow:0 18px 40px rgba(60,40,20,0.12);
+  --cream:#241a13;
+  --smoke:#67594c;
+  --steam:rgba(60,44,28,0.38);
+  --line:rgba(67,45,25,0.18);
+  --shadow:0 18px 42px rgba(58,39,22,0.14);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
@@ -88,6 +86,32 @@ body{
     radial-gradient(circle at -8% 35%, rgba(var(--flame-rgb),0.08), transparent 40%),
     radial-gradient(circle at 50% 100%, rgba(var(--ember-rgb),0.04), transparent 50%);
 }
+  [data-theme="light"] .site-header{background:rgba(255,253,250,0.86);border-bottom-color:rgba(67,45,25,0.12);box-shadow:0 8px 24px rgba(58,39,22,0.06);}
+  [data-theme="light"] .site-header.scrolled{background:rgba(255,253,250,0.97);border-bottom-color:var(--line);box-shadow:0 10px 30px rgba(58,39,22,0.1);}
+  [data-theme="light"] .nav-link{color:#756759;}
+  [data-theme="light"] .nav-link:hover,[data-theme="light"] .nav-link.active{color:var(--cream);}
+  [data-theme="light"] .theme-toggle{box-shadow:0 4px 14px rgba(58,39,22,0.08);}
+  [data-theme="light"] .section-alt{background:linear-gradient(180deg,transparent,rgba(91,62,33,0.055) 15%,rgba(91,62,33,0.055) 85%,transparent);}
+  [data-theme="light"] .hero-title{background:linear-gradient(100deg,var(--cream) 22%,var(--ember) 62%,var(--flame-light));-webkit-background-clip:text;background-clip:text;}
+  [data-theme="light"] .btn-outline{background:rgba(255,253,250,0.72);box-shadow:0 5px 16px rgba(58,39,22,0.07);}
+  [data-theme="light"] .btn-outline:hover{background:rgba(var(--flame-rgb),0.12);}
+  [data-theme="light"] .stat-card,
+  [data-theme="light"] .why-card{background:linear-gradient(145deg,rgba(255,253,250,0.98),rgba(239,231,220,0.72));box-shadow:0 10px 26px rgba(58,39,22,0.07);}
+  [data-theme="light"] .product-card,
+  [data-theme="light"] .rating-summary,
+  [data-theme="light"] .review-theme,
+  [data-theme="light"] .branch-item{box-shadow:0 10px 26px rgba(58,39,22,0.07);}
+  [data-theme="light"] .product-card:hover,
+  [data-theme="light"] .branch-item:hover{box-shadow:0 18px 36px rgba(58,39,22,0.13);}
+  [data-theme="light"] .product-img-wrap{background:linear-gradient(145deg,#f3ede4,#e7dccd);}
+  [data-theme="light"] .filter-pill{box-shadow:0 4px 12px rgba(58,39,22,0.05);}
+  [data-theme="light"] .filter-pill:hover{background:#fffdfa;}
+  [data-theme="light"] .order-cta{background:linear-gradient(150deg,rgba(var(--ember-rgb),0.11),rgba(var(--flame-rgb),0.12));}
+  [data-theme="light"] .app-badge{background:rgba(255,253,250,0.86);box-shadow:0 4px 12px rgba(58,39,22,0.05);}
+  [data-theme="light"] .social-icon,[data-theme="light"] .back-to-top{background:var(--char-2);box-shadow:0 5px 16px rgba(58,39,22,0.08);}
+  [data-theme="light"] .branches-map{box-shadow:0 18px 42px rgba(58,39,22,0.14);}
+  [data-theme="light"] .product-modal{background:rgba(42,28,17,0.48);}
+  [data-theme="light"] .product-modal__dialog{border-color:rgba(var(--flame-rgb),0.42);}
 img{max-width:100%;display:block;}
 a{color:inherit;text-decoration:none;}
 ul{list-style:none;}
@@ -204,7 +228,7 @@ section{padding:110px 0;position:relative;}
 
 /* ============ 5. STATS ============ */
 .stats{padding-block:80px;}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.stats-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;}
 .stat-card{text-align:center;padding:30px 16px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(180deg,rgba(255,255,255,0.03),transparent);}
 [data-theme="light"] .stat-card{background:linear-gradient(180deg,rgba(20,15,10,0.03),transparent);}
 .stat-number{display:block;font-family:'Changa',sans-serif;font-weight:700;font-size:clamp(1.8rem,3.5vw,2.6rem);color:var(--flame-light);line-height:1;margin-bottom:10px;direction:ltr;}
@@ -352,6 +376,7 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
 
 /* ============ 16. RESPONSIVE ============ */
 @media (max-width:1024px){
+  .stats-grid{grid-template-columns:repeat(3,1fr);}
   .hero-inner{grid-template-columns:1fr;text-align:center;}
   .hero-desc{margin-inline:auto;}
   .hero-actions{justify-content:center;}
@@ -473,7 +498,7 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
       <span class="stat-number"><span class="count">0</span></span>
       <span class="stat-label">تقييم العملاء ⭐</span>
     </div>
-    <div class="stat-card reveal" data-target="4" data-decimals="0">
+    <div class="stat-card reveal" data-target="0" data-count-source="branches" data-decimals="0">
       <span class="stat-number">+<span class="count">0</span></span>
       <span class="stat-label">فروع بالعراق</span>
     </div>
@@ -484,6 +509,14 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
     <div class="stat-card reveal" data-target="1100000" data-decimals="0">
       <span class="stat-number">+<span class="count">0</span></span>
       <span class="stat-label">متابع بمنصات التواصل</span>
+    </div>
+    <div class="stat-card reveal" data-target="0" data-count-source="categories" data-decimals="0">
+      <span class="stat-number"><span class="count">0</span></span>
+      <span class="stat-label">عدد الأصناف</span>
+    </div>
+    <div class="stat-card reveal" data-target="0" data-count-source="products" data-decimals="0">
+      <span class="stat-number"><span class="count">0</span></span>
+      <span class="stat-label">عدد المنتجات</span>
     </div>
   </div>
 </section>
@@ -521,7 +554,7 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
   <div class="container">
     <span class="eyebrow reveal">الأشهر عندنا</span>
     <h2 class="section-title reveal">بوكسات هاديز</h2>
-    <p class="section-lead reveal">الاختراع الأصلي لهاديز: ستربس مقرمشة، صلصة سيكرت، وجبن تشيدر سائح، ملفوفة بطبقة من رقائقك المفضلة — توليفة لا تجدها في أي مطعم آخر بالعراق.</p>
+    <p class="section-lead reveal">الاختراع الأصلي لهاديز: ستربس مقرمشة، صلصة سيكرت، وجبن تشيدر سائح، ملفوفة بطبقة من رقائقك المفضلة توليفة لا تجدها في أي مطعم آخر بالعراق.</p>
     <div class="box-grid" id="boxGrid"></div>
   </div>
 </section>
@@ -531,7 +564,7 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
   <div class="container">
     <span class="eyebrow reveal">قائمة الطعام</span>
     <h2 class="section-title reveal">اختر وجبتك</h2>
-    <p class="section-lead reveal">منيو كامل يجمع كل شي تحبه: برغر، دجاج مقرمش، بيتزا، وجبات عائلية، ومشروبات.</p>
+    <p class="section-lead reveal">منيو كامل يجمع كل شي تحبه</p>
     <div class="menu-filters reveal" id="menuFilters" role="tablist" aria-label="تصنيفات المنيو"></div>
     <div class="menu-grid" id="menuGrid"></div>
   </div>
@@ -542,7 +575,7 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
   <div class="container">
     <span class="eyebrow reveal">آراء عملائنا</span>
     <h2 class="section-title reveal">ثقة نفتخر بها</h2>
-    <p class="section-lead reveal">تقييمنا مبني على مئات التجارب الحقيقية لعملائنا عبر خرائط جوجل وتطبيقات التوصيل.</p>
+    <p class="section-lead reveal">تقييمنا مبني على الاف التجارب الحقيقية لعملائنا عبر خرائط جوجل وتطبيقات التوصيل.</p>
     <div class="reviews-grid">
       <div class="rating-summary reveal">
         <span class="rating-number">4.5</span>
@@ -589,7 +622,7 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
       <div class="why-card reveal">
         <span class="why-icon">📦</span>
         <h3>بوكسات حصرية</h3>
-        <p>تركيبات وصلصات سرّية لا تجدها إلا عند هاديز — بصمتنا الخاصة والمميزة</p>
+        <p>تركيبات وصلصات سرّية لا تجدها إلا عند هاديز بصمتنا الخاصة والمميزة</p>
       </div>
       <div class="why-card reveal">
         <span class="why-icon">✅</span>
@@ -602,37 +635,23 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
 
 <!-- ============ BRANCHES ============ -->
 <section class="branches" id="branches">
+  <style>
+    .branch-hours{display:flex;align-items:center;gap:8px;margin-top:5px;color:var(--smoke);font-size:.82rem;font-weight:600}
+    .branch-status{display:inline-flex;align-items:center;gap:6px;font-weight:800}
+    .branch-status::before{content:"";width:9px;height:9px;border-radius:50%;background:#dc2638;box-shadow:0 0 0 4px rgba(220,38,56,.14)}
+    .branch-status.is-open{color:#39c878}.branch-status.is-open::before{background:#39c878;box-shadow:0 0 0 4px rgba(57,200,120,.14)}
+    .branch-status.is-closed{color:#f05b67}
+  </style>
   <div class="container branches-grid">
     <div class="reveal">
       <span class="eyebrow">فروعنا</span>
       <h2 class="section-title">وين تلقانا</h2>
       <p class="section-lead" style="margin-bottom:0;">فروعنا الحالية بكربلاء وبغداد، ومستمرين بالتوسع لمحافظات جديدة. اضغط على أي فرع لفتح موقعه على خرائط جوجل.</p>
-      <ul class="branch-list">
-        <li><a class="branch-item" href="https://www.google.com/maps/search/?api=1&query=Hadees+Karbala+Al+Naqib+Iraq" target="_blank" rel="noopener">
-          <span class="branch-pin">📍</span>
-          <div><strong>كربلاء - حي النقيب</strong><p>الفرع الرئيسي</p><span class="flag">الفرع الرئيسي</span></div>
-          <span class="branch-go">افتح بالخرائط ↗</span>
-        </a></li>
-        <li><a class="branch-item" href="https://www.google.com/maps/search/?api=1&query=Hadees+Karbala+Al+Harith+Mall+Iraq" target="_blank" rel="noopener">
-          <span class="branch-pin">📍</span>
-          <div><strong>كربلاء - الجمعية</strong><p>مول الحارث</p></div>
-          <span class="branch-go">افتح بالخرائط ↗</span>
-        </a></li>
-        <li><a class="branch-item" href="https://www.google.com/maps/search/?api=1&query=Hadees+Baghdad+Palestine+Street+Iraq" target="_blank" rel="noopener">
-          <span class="branch-pin">📍</span>
-          <div><strong>بغداد - شارع فلسطين</strong><p>خدمة صالة وتوصيل وسفري</p></div>
-          <span class="branch-go">افتح بالخرائط ↗</span>
-        </a></li>
-        <li><a class="branch-item" href="https://www.google.com/maps/place/%D9%87%D8%A7%D8%AF%D9%8A%D8%B2%E2%80%AD/@32.6065084,44.0202177,1285m/data=!3m2!1e3!4b1!4m6!3m5!1s0x15596b1ac445bf4d:0x159c24d94f1fa365!8m2!3d32.6065084!4d44.0202177!16s%2Fg%2F11fk3_rng1!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">
-          <span class="branch-pin">📍</span>
-          <div><strong>بغداد - الكرادة</strong><p>ساحة الواثق</p></div>
-          <span class="branch-go">افتح بالخرائط ↗</span>
-        </a></li>
-      </ul>
+      <ul class="branch-list" id="branchList"></ul>
       <p class="branches-note">🚀 فروع جديدة قادمة بمحافظات إضافية قريباً</p>
     </div>
     <div class="branches-map reveal">
-      <iframe src="https://maps.google.com/maps?q=32.6065084,44.0202177&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع هاديز"></iframe>
+      <iframe id="branchesMap" src="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="موقع هاديز"></iframe>
     </div>
   </div>
 </section>
@@ -683,10 +702,7 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
     </div>
     <div class="footer-branches">
       <h4>فروعنا</h4>
-      <p>كربلاء - حي النقيب</p>
-      <p>كربلاء - مول الحارث</p>
-      <p>بغداد - شارع فلسطين</p>
-      <p>بغداد - ساحة الواثق</p>
+      <div id="footerBranches"></div>
     </div>
     <div class="footer-contact">
       <h4>تواصل معنا</h4>
@@ -731,6 +747,13 @@ var MENU_CATEGORY = [
   {id:'pizza',name:'البيتزا'},
   {id:'kids',name:'وجبات الأطفال'},
   {id:'drinks',name:'المشروبات'}
+];
+
+var Rest_Loc = [
+  {id:'karbala-naqib',name:'كربلاء - حي النقيب',location:'كربلاء - حي النقيب',description:'الفرع الرئيسي',badge:'الفرع الرئيسي',open:'09:00',close:'05:00',hours:'٩ صباحاً – ٥ فجراً',mapsUrl:'https://www.google.com/maps/search/?api=1&query=Hadees+Karbala+Al+Naqib+Iraq',mapEmbed:'https://maps.google.com/maps?q=32.6164,44.0247&z=15&output=embed'},
+  {id:'karbala-harith',name:'كربلاء - الجمعية',location:'كربلاء - الجمعية',description:'مول الحارث',badge:'',open:'11:00',close:'00:00',hours:'١١ صباحاً – ١٢ منتصف الليل',mapsUrl:'https://www.google.com/maps/search/?api=1&query=Hadees+Karbala+Al+Harith+Mall+Iraq',mapEmbed:'https://maps.google.com/maps?q=32.6065,44.0202&z=15&output=embed'},
+  {id:'baghdad-palestine',name:'بغداد - شارع فلسطين',location:'بغداد - شارع فلسطين',description:'الشارع الرئيسي',badge:'',open:'09:00',close:'05:00',hours:'٩ صباحاً – ٥ فجراً',mapsUrl:'https://www.google.com/maps/search/?api=1&query=Hadees+Baghdad+Palestine+Street+Iraq',mapEmbed:'https://maps.google.com/maps?q=33.3375,44.4268&z=15&output=embed'},
+  {id:'baghdad-karada',name:'بغداد - الكرادة',location:'بغداد - الكرادة',description:'ساحة الواثق',badge:'اول فروع بغداد',open:'09:00',close:'05:00',hours:'٩ صباحاً – ٥ فجراً',mapsUrl:'https://www.google.com/maps/place/%D9%87%D8%A7%D8%AF%D9%8A%D8%B2%E2%80%AD/@32.6065084,44.0202177,1285m/data=!3m2!1e3!4b1!4m6!3m5!1s0x15596b1ac445bf4d:0x159c24d94f1fa365!8m2!3d32.6065084!4d44.0202177!16s%2Fg%2F11fk3_rng1!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D',mapEmbed:'https://maps.google.com/maps?q=32.6065084,44.0202177&z=15&output=embed'}
 ];
 
 var MENU_ITEMS = [
@@ -804,6 +827,46 @@ document.addEventListener('DOMContentLoaded', function(){
   var currentYearEl = document.getElementById('currentYear');
   if(currentYearEl){ currentYearEl.textContent = new Date().getFullYear(); }
 
+  var branchList = document.getElementById('branchList');
+  var footerBranches = document.getElementById('footerBranches');
+  var branchesMap = document.getElementById('branchesMap');
+  branchList.innerHTML = Rest_Loc.map(function(branch){
+    var badgeHtml = branch.badge ? '<span class="flag">' + branch.badge + '</span>' : '';
+    return '<li><a class="branch-item" href="' + branch.mapsUrl + '" target="_blank" rel="noopener">' +
+      '<span class="branch-pin">📍</span>' +
+      '<div><strong>' + branch.name + '</strong><p>' + branch.description + '</p>' + badgeHtml +
+      '<span class="branch-hours"><span class="branch-status" data-open="' + branch.open + '" data-close="' + branch.close + '">جاري التحقق...</span> · ' + branch.hours + '</span></div>' +
+      '<span class="branch-go">افتح بالخرائط ↗</span></a></li>';
+  }).join('');
+  footerBranches.innerHTML = Rest_Loc.map(function(branch){
+    return '<p>' + branch.location + '</p>';
+  }).join('');
+  if(Rest_Loc.length && branchesMap){ branchesMap.src = Rest_Loc[0].mapEmbed; }
+
+  /* ---- branch status: calculate immediately using Baghdad time ---- */
+  function updateBranchStatuses(){
+    var timeParts = new Intl.DateTimeFormat('en-US', {
+      timeZone:'Asia/Baghdad', hour:'2-digit', minute:'2-digit', hour12:false
+    }).formatToParts(new Date());
+    var currentMinutes = Number(timeParts.find(function(part){ return part.type === 'hour'; }).value) * 60 +
+      Number(timeParts.find(function(part){ return part.type === 'minute'; }).value);
+
+    document.querySelectorAll('.branch-status').forEach(function(status){
+      var openParts = status.getAttribute('data-open').split(':');
+      var closeParts = status.getAttribute('data-close').split(':');
+      var openMinutes = Number(openParts[0]) * 60 + Number(openParts[1]);
+      var closeMinutes = Number(closeParts[0]) * 60 + Number(closeParts[1]);
+      var isOpen = closeMinutes > openMinutes
+        ? currentMinutes >= openMinutes && currentMinutes < closeMinutes
+        : currentMinutes >= openMinutes || currentMinutes < closeMinutes;
+
+      status.classList.toggle('is-open', isOpen);
+      status.classList.toggle('is-closed', !isOpen);
+      status.textContent = isOpen ? 'مفتوح الآن' : 'مغلق الآن';
+    });
+  }
+  updateBranchStatuses();
+
   /* ---- render products from data (single source of truth: MENU_ITEMS above) ---- */
   var boxGrid = document.getElementById('boxGrid');
   var menuGrid = document.getElementById('menuGrid');
@@ -824,14 +887,6 @@ document.addEventListener('DOMContentLoaded', function(){
   if(invalidCategories.length){
     console.warn('Unknown menu categories:', invalidCategories.map(function(item){ return item.category; }));
   }
-  var allFilterButton = document.createElement('button');
-  allFilterButton.className = 'filter-pill active';
-  allFilterButton.type = 'button';
-  allFilterButton.setAttribute('data-filter', 'all');
-  allFilterButton.setAttribute('role', 'tab');
-  allFilterButton.setAttribute('aria-selected', 'true');
-  allFilterButton.textContent = 'الكل';
-  menuFilters.appendChild(allFilterButton);
   MENU_CATEGORY.forEach(function(category){
     var hasProducts = MENU_ITEMS.some(function(item){ return item.category === category.id; });
     if(!hasProducts) return;
@@ -843,6 +898,26 @@ document.addEventListener('DOMContentLoaded', function(){
     filterButton.setAttribute('aria-selected', 'false');
     filterButton.textContent = category.name;
     menuFilters.appendChild(filterButton);
+  });
+  var allFilterButton = document.createElement('button');
+  allFilterButton.className = 'filter-pill';
+  allFilterButton.type = 'button';
+  allFilterButton.setAttribute('data-filter', 'all');
+  allFilterButton.setAttribute('role', 'tab');
+  allFilterButton.setAttribute('aria-selected', 'false');
+  allFilterButton.textContent = 'الكل';
+  menuFilters.appendChild(allFilterButton);
+
+  var defaultMenuFilter = 'burger';
+  var filterPills = document.querySelectorAll('.filter-pill');
+  var menuItems = menuGrid.querySelectorAll('.product-card');
+  filterPills.forEach(function(pill){
+    var isDefault = pill.getAttribute('data-filter') === defaultMenuFilter;
+    pill.classList.toggle('active', isDefault);
+    pill.setAttribute('aria-selected', isDefault ? 'true' : 'false');
+  });
+  menuItems.forEach(function(item){
+    item.style.display = item.getAttribute('data-category') === defaultMenuFilter ? '' : 'none';
   });
 
   /* ---- product detail modal ---- */
@@ -983,7 +1058,6 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
   /* ---- menu category filter ---- */
-  var filterPills = document.querySelectorAll('.filter-pill');
   filterPills.forEach(function(pill){
     pill.addEventListener('click', function(){
       filterPills.forEach(function(p){
@@ -1021,6 +1095,12 @@ document.addEventListener('DOMContentLoaded', function(){
     requestAnimationFrame(tick);
   }
   var statCards = document.querySelectorAll('.stat-card');
+  statCards.forEach(function(card){
+    var source = card.getAttribute('data-count-source');
+    if(source === 'categories'){ card.setAttribute('data-target', MENU_CATEGORY.length); }
+    if(source === 'products'){ card.setAttribute('data-target', MENU_ITEMS.length); }
+    if(source === 'branches'){ card.setAttribute('data-target', Rest_Loc.length); }
+  });
   if('IntersectionObserver' in window && statCards.length){
     var statObserver = new IntersectionObserver(function(entries){
       entries.forEach(function(entry){
