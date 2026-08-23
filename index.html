@@ -740,14 +740,20 @@ var HERO_FALLBACK_IMG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
 
 /* ---- internal menu database: keep product.category IDs in sync with this list ---- */
 var MENU_CATEGORY = [
+  {id:'offers',name:'العروض'},
+  {id:'boxes',name:'بوكسات هاديز'},
   {id:'burger',name:'البرغر'},
   {id:'sandwich',name:'الساندويش'},
-  {id:'boxes',name:'بوكسات هاديز'},
+  {id:'meals',name:'الوجبات'},
+  {id:'pizza',name:'البيتزا'},
   {id:'kentucky',name:'وجبات الكنتاكي'},
   {id:'strips',name:'الستربس'},
   {id:'rizo',name:'الريزو'},
   {id:'wings',name:'الأجنحة'},
-  {id:'pizza',name:'البيتزا'},
+  {id:'fatteh',name:'فتة ورق عنب'},
+  {id:'snacks',name:'السناك'},
+  {id:'appetizers',name:'المقبلات'},
+  {id:'addons',name:'الإضافات'},
   {id:'kids',name:'وجبات الأطفال'},
   {id:'drinks',name:'المشروبات'}
 ];
@@ -760,53 +766,128 @@ var Rest_Loc = [
 ];
 
 var MENU_ITEMS = [
+  {id:'offer-giants-bucket',category:'offers',name:'باكيت الجبابرة',desc:'كنتاكي 8 قطع، ستربس 8 قطع، 6 ببسي، 8 خبز الزبدة، فنكر، 3 ثومية، 2 كول سلو',price:29000,img:'images/offer-giants-bucket.png'},
+  {id:'offer-fried-party-meal',category:'offers',name:'فرايد بارتي ميل',desc:'كنتاكي 8 قطع، 5 خبز زبدة، فنكر، 3 ثومية، كول سلو، جبن تشيدر سائح',price:15000,img:'images/offer-fried-party-meal.png'},
+  {id:'offer-illogical',category:'offers',name:'العرض المو منطقي',desc:'25 قطعة أجنحة مقرمشة',price:10000,img:'images/offer-illogical.png'},
+  {id:'offer-king',category:'offers',name:'عرض الملك',desc:'4 قطع كنتاكي، ثومية، كول سلو، 3 كاتشب، 2 صمون، فنكر',price:8500,img:'images/offer-king.jpeg'},
+  {id:'offer-cinema-bucket',category:'offers',name:'سينما باكيت ميل',desc:'كنتاكي 11 قطعة، 6 خبز زبدة، فنكر، 3 ثومية، كول سلو',price:20000,img:'images/offer-cinema-bucket.png'},
+  {id:'offer-cheese-burger-combo',category:'offers',name:'جيز برغر كومبو',desc:'جيز برغر، فنكر، مشروب غازي',price:7000,img:'images/offer-cheese-burger-combo.png'},
+  {id:'offer-twister-box',category:'offers',name:'تويستر بوكس',desc:'تويستر، فنكر، قطعة كنتاكي، ثومية، كول سلو، خبز الزبدة، مشروب غازي',price:8000,img:'images/offer-twister-box.jpg'},
+  {id:'offer-yalla-deluxe',category:'offers',name:'يلا ديلوكس',desc:'بيج ديلوكس، فنكر، مشروب غازي',price:7000,img:'images/offer-yalla-deluxe.png'},
+  {id:'offer-fried-chicken-combo',category:'offers',name:'فرايد جكن كومبو',desc:'فرايد جكن، فنكر، مشروب غازي',price:5000,img:'images/offer-fried-chicken-combo.png'},
+  {id:'offer-triple-mini-fried',category:'offers',name:'تربل ميني فرايد',desc:'3 ميني فرايد جكن',price:10000,img:'images/offer-triple-mini-fried.png'},
+  {id:'offer-tabasco-fillet',category:'offers',name:'تباسكو جكن فيليه',desc:'جكن فيليه، فنكر، قطعة ستربس، علبة ستيكس تباسكو',price:10000,img:'images/offer-tabasco-fillet.png'},
+  {id:'offer-hotdog-combo',category:'offers',name:'هوت دوغ كومبو',desc:'هوت دوغ عمان، هوت دوغ تاكو',price:8000,img:'images/offer-hotdog-combo.png'},
+  {id:'offer-crispy-wings',category:'offers',name:'عرض الأجنحة المقرمشة',desc:'20 قطعة أجنحة، 3 خبز زبدة، فنكر، ثومية، صلصة بافلو أو باربكيو، كول سلو',price:10000,img:'images/offer-crispy-wings.png'},
 
-
-  {id:'big-deluxe',category:'burger',name:'بيج ديلوكس',desc:'شريحة لحم، جبن تشيدر، شرائح مخلل، طماطم، بصل، خس',price:7000,img:'images/big-deluxe.jpg'},
-  {id:'cheese-burger',category:'burger',name:'جيز برغر',desc:'شريحة لحم، جبن تشيدر سائح، شرائح مخلل، كاتشب، مايونيز',price:5000,img:'images/cheese-burger.jpg'},
-  {id:'big-hadi-meat',category:'burger',name:'بيج هادي لحم',desc:'شريحتان لحم، جبن تشيدر سائح، صلصة البيغ هادي الخاصة، خس',price:10000,img:'images/big-hadi-meat.jpg'},
-  {id:'double-double',category:'burger',name:'دبل دبل',desc:'شريحتان لحم، شريحتان جبن تشيدر، جبن سائح، شرائح مخلل',price:9000,img:'images/double-double.jpg'},
-  {id:'triple-triple',category:'burger',name:'تربل تربل',desc:'ثلاث شرائح لحم، ثلاث شرائح جبن تشيدر، جبن سائح، مخلل',price:12000,img:'images/triple-triple.jpg'},
-  {id:'fried-chicken-burger',category:'burger',name:'فرايد جكن',desc:'قطعة دجاج مقرمش، جبن تشيدر، خس، صلصة الفرايد جكن',price:4000,img:'images/fried-chicken-burger.jpg'},
-
-  {id:'crunchy-twister',category:'sandwich',name:'كرنجي تويستر',desc:'تورتيلا، ستربس مقرمش، جبس ليز ماكس سبايسي، هالبينو، جبن سائح',price:6000,badge:'الأكثر طلباً',img:'images/crunchy-twister.jpg'},
-  {id:'zinger',category:'sandwich',name:'زنجر',desc:'تورتيلا، ستربس مقرمش، هالبينو، جبن تشيدر سائح، مايونيز',price:5000,img:'images/zinger.jpg'},
-  {id:'hotdog-bacon',category:'sandwich',name:'هوت دوغ بيكن',desc:'هوت دوغ، بيكن بقري، جبن تشيدر سائح، مايونيز، خردل',price:6000,img:'images/hotdog-bacon.jpg'},
-  {id:'hotdog-oman',category:'sandwich',name:'هوت دوغ عمان',desc:'هوت دوغ، جبس عمان، جبن تشيدر سائح، مايونيز، كاتشب',price:5000,img:'images/hotdog-oman.jpg'},
-
-  {id:'jeetos-box',category:'boxes',name:'جيتوس بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، شرائح هالبينو، جبس جيتوس',price:6500,badge:'الأكثر طلباً',img:'images/jeetos-box.jpg'},
+  {id:'mini-hadees-box',category:'boxes',name:'بيبي هاديز بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب',price:6000,img:'images/mini-hadees-box.png'},
+  {id:'les-max-box',category:'boxes',name:'ليز ماكس بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب، شرائح هالبينو، جبس ليز ماكس سبايسي',price:6500,img:'images/les-max-box.jpg'},
   {id:'hadees-box',category:'boxes',name:'هاديز بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب',price:7000,img:'images/hadees-box.png'},
-  {id:'tabasco-box',category:'boxes',name:'تباسكو بوكس',desc:'ستربس، فنكر، صلصة سيكرت، جبن تشيدر سائح، هالبينو، صلصة وجبس تباسكو',price:7000,img:'images/tabasco-box.jpg'},
-  {id:'doritos-box',category:'boxes',name:'دوريتوس بوكس',desc:'ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، هالبينو، جبس دوريتوس',price:6500,img:'images/doritos-box.jpg'},
-  {id:'taco-box',category:'boxes',name:'تاكو بوكس',desc:'ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، بهارات وجبس تاكو',price:6500,img:'images/taco-box.jpg'},
-  {id:'oman-box',category:'boxes',name:'عمان بوكس',desc:'ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، هالبينو، جبس عمان',price:7000,img:'images/oman-box.jpg'},
+  {id:'jeetos-box',category:'boxes',name:'جيتوس بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب، شرائح هالبينو، جبس جيتوس',price:6500,badge:'الأكثر طلباً',img:'images/jeetos-box.jpg'},
+  {id:'doritos-box',category:'boxes',name:'دوريتوس بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب، شرائح هالبينو، جبس دوريتوس',price:6500,img:'images/doritos-box.jpg'},
+  {id:'oman-box',category:'boxes',name:'عمان بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب، شرائح هالبينو، جبس عمان',price:7000,img:'images/oman-box.jpg'},
+  {id:'tabasco-box',category:'boxes',name:'تباسكو بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب، شرائح هالبينو، صلصة تباسكو، جبس تباسكو',price:7000,img:'images/tabasco-box.jpg'},
+  {id:'salad-box',category:'boxes',name:'سلاطة بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب، شرائح هالبينو، جبس سلاطة',price:7000,img:'images/salad-box.png'},
+  {id:'taco-box',category:'boxes',name:'تاكو بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب، شرائح هالبينو، بهارات تاكو، جبس تاكو',price:6500,img:'images/taco-box.jpg'},
+  {id:'sahar-box',category:'boxes',name:'صحار بوكس',desc:'قطع ستربس، فنكر مقرمش، صلصة سيكرت، جبن تشيدر سائح، كاتشب، شرائح هالبينو، جبس صحار',price:7000,img:'images/sahar-box.jpg'},
 
+  {id:'cheese-burger',category:'burger',name:'جيز برغر',desc:'شريحة لحم، شريحة جبن تشيدر، جبن تشيدر سائح، شرائح مخلل، كاتشب، مايونيز، بصل مفروم ناعم',price:5000,img:'images/cheese-burger.jpg'},
+  {id:'big-hadi-chicken',category:'burger',name:'بيج هادي جكن',desc:'قطعتان دجاج مقرمش، شريحتان جبن تشيدر، خبزة وسطية، خس، صلصة البيغ هادي',price:7000,img:'images/big-hadi-chicken.jpg'},
+  {id:'big-deluxe',category:'burger',name:'بيج ديلوكس',desc:'شريحة لحم، شريحة جبن تشيدر، جبن تشيدر سائح، شرائح مخلل، كاتشب، مايونيز، بصل شرائح، طماطم، خس',price:7000,img:'images/big-deluxe.jpg'},
+  {id:'big-secret',category:'burger',name:'بيج سيكرت',desc:'شريحة لحم، شريحة جبن تشيدر، صلصة سيكرت، شرائح مخلل، مايونيز، بصل شرائح، طماطم، خس',price:7000,img:'images/big-secret.jpg'},
+  {id:'double-double',category:'burger',name:'دبل دبل',desc:'شريحتان لحم، شريحتان جبن تشيدر، جبن تشيدر سائح، شرائح مخلل، كاتشب، مايونيز، بصل مفروم ناعم',price:9000,img:'images/double-double.jpg'},
+  {id:'big-hadi-meat',category:'burger',name:'بيج هادي لحم',desc:'شريحتان لحم، شريحتان جبن تشيدر، صلصة البيغ هادي، خبزة وسطية، خس، شرائح مخلل، جبن تشيدر سائح',price:10000,img:'images/big-hadi-meat.jpg'},
+  {id:'swiss-mushroom',category:'burger',name:'سويس آند مشروم',desc:'شريحة لحم، شريحة جبن تشيدر، صلصة السويس آند مشروم، فطر، جبن تشيدر سائح، شرائح مخلل، كاتشب، مايونيز',price:8000,img:'images/swiss-mushroom.jpg'},
+  {id:'bbq-steak',category:'burger',name:'باربكيو ستيك',desc:'شريحة لحم، ستيك التندرلوين، صلصة باربكيو، جبن تشيدر سائح، شرائح مخلل، جبن موزاريلا',price:10000,img:'images/bbq-steak.jpg'},
+  {id:'jalapeno-double-cheese',category:'burger',name:'هالبينو دبل جيز برغر',desc:'شريحتان لحم، شريحتان جبن تشيدر، شرائح هالبينو، شرائح مخلل، كاتشب، مايونيز، بصل شرائح، طماطم، خس',price:10000,img:'images/jalapeno-double-cheese.jpg'},
+  {id:'juicy-lucy',category:'burger',name:'جوسي لوسي',desc:'شريحة لحم، قطعة جبن قشقوان مقرمشة، جبن تشيدر سائح، شرائح مخلل، كاتشب، مايونيز، بصل شرائح، طماطم',price:8000,img:'images/juicy-lucy.jpg'},
+  {id:'triple-triple',category:'burger',name:'تربل تربل',desc:'ثلاث شرائح لحم، ثلاث شرائح جبن تشيدر، شرائح مخلل، كاتشب، جبن تشيدر سائح، بصل مفروم ناعم',price:12000,img:'images/triple-triple.jpg'},
+  {id:'bacon-double-cheese',category:'burger',name:'بيكن دبل جيز برغر',desc:'شريحتان لحم، شريحتان بيكن بقري، شريحتان جبن تشيدر، جبن تشيدر سائح، شرائح مخلل، كاتشب، مايونيز',price:10000,img:'images/bacon-double-cheese.jpg'},
+  {id:'chicken-fillet',category:'burger',name:'جكن فيليه',desc:'قطعة جكن فيليه، شريحة جبن تشيدر، جبن تشيدر سائح، خس، شرائح مخلل، مايونيز',price:5000,img:'images/chicken-fillet.jpg'},
+  {id:'chicken-terminator',category:'burger',name:'جكن ترمينيتور',desc:'قطعتان جكن فيليه، شريحتان جبن تشيدر، جبن تشيدر سائح، خس، شرائح مخلل، مايونيز، شرائح هالبينو',price:10000,img:'images/chicken-terminator.jpg'},
+  {id:'fried-chicken-burger',category:'burger',name:'فرايد جكن',desc:'قطعة دجاج مقرمش، شريحة جبن تشيدر، خس، صلصة الفرايد جكن',price:4000,img:'images/fried-chicken-burger.jpg'},
+
+  {id:'hotdog-jeetos',category:'sandwich',name:'هوت دوغ جيتوس',desc:'هوت دوغ، جبس جيتوس، مايونيز، كاتشب، جبن تشيدر سائح، خردل',price:4000,img:'images/hotdog-jeetos.jpg'},
+  {id:'hotdog-doritos',category:'sandwich',name:'هوت دوغ دوريتوس',desc:'هوت دوغ، شيبس دوريتوس، مايونيز، كاتشب، جبن تشيدر سائح، خردل',price:4000,img:'images/hotdog-doritos.jpg'},
+  {id:'hotdog-lays',category:'sandwich',name:'هوت دوغ ليز',desc:'هوت دوغ، جبس ليز، مايونيز، كاتشب، جبن تشيدر سائح، خردل',price:4000,img:'images/hotdog-lays.jpg'},
+  {id:'hotdog-oman',category:'sandwich',name:'هوت دوغ عمان',desc:'هوت دوغ، جبس عمان، مايونيز، كاتشب، جبن تشيدر سائح، خردل',price:5000,img:'images/hotdog-oman.jpg'},
+  {id:'hotdog-taco',category:'sandwich',name:'هوت دوغ تاكو',desc:'هوت دوغ، جبس تاكو، بهارات تاكو، مايونيز، كاتشب، جبن تشيدر سائح، خردل',price:4000,img:'images/hotdog-taco.jpg'},
+  {id:'hotdog-crispy',category:'sandwich',name:'هوت دوغ فنكر مقرمش',desc:'هوت دوغ، فنكر مقرمش، مايونيز، كاتشب، جبن تشيدر سائح، خردل',price:4000,img:'images/hotdog-crispy.jpg'},
+  {id:'hotdog-bacon',category:'sandwich',name:'هوت دوغ بيكن',desc:'هوت دوغ، بيكن بقري، مايونيز، كاتشب، جبن تشيدر سائح، خردل',price:6000,img:'images/hotdog-bacon.jpg'},
+  {id:'twister',category:'sandwich',name:'تويستر',desc:'خبز تورتيلا، ستربس مقرمش، جبن تشيدر سائح، شرائح مخلل، خس، مايونيز',price:5000,img:'images/twister.jpg'},
+  {id:'crunchy-twister',category:'sandwich',name:'كرنجي تويستر',desc:'خبز تورتيلا، ستربس مقرمش، مايونيز، جبس ليز ماكس سبايسي، شرائح مخلل، شرائح هالبينو، جبن تشيدر سائح، خس',price:6000,badge:'الأكثر طلباً',img:'images/crunchy-twister.jpg'},
+  {id:'zinger',category:'sandwich',name:'زنجر',desc:'خبز تورتيلا، ستربس مقرمش، مايونيز، شرائح مخلل، شرائح هالبينو، خس، جبن تشيدر سائح',price:5000,img:'images/zinger.jpg'},
+
+  {id:'meat-box',category:'meals',name:'ميت بوكس',desc:'جيز برغر، فنكر، 2 قطع ستربس، ثومية، كول سلو، خبز الزبدة، مشروب غازي',price:11000,img:'images/meat-box.jpg'},
+  {id:'secret-box-meal',category:'meals',name:'سيكرت بوكس',desc:'بيج سيكرت، فنكر، قطعة كنتاكي، ثومية، كول سلو، خبز الزبدة، مشروب غازي',price:10000,img:'images/secret-box-meal.jpg'},
+  {id:'fillet-box',category:'meals',name:'فيليه بوكس',desc:'جكن فيليه، فنكر، 2 قطع ستربس، ثومية، كول سلو، خبز الزبدة، مشروب غازي',price:11000,img:'images/fillet-box.jpg'},
+  {id:'snack-box-meal',category:'meals',name:'سناك بوكس',desc:'قطعتان كنتاكي، 2 خبز زبدة، فنكر، ثومية، كول سلو، مشروب غازي',price:6500,img:'images/snack-box-meal.jpg'},
+
+  {id:'pizza-tawouq',category:'pizza',name:'بيتزا طاووق',desc:'عجينة البيتزا، صلصة البيتزا، جبنة موزاريلا، فلفل، فطر، زيتون، طماطم، ذرة، طاووق دجاج',price:5000,img:'images/pizza-tawouq.png'},
+  {id:'pizza-veggie',category:'pizza',name:'بيتزا خضار',desc:'عجينة البيتزا، صلصة البيتزا، جبنة موزاريلا، فلفل، فطر، زيتون، طماطم، ذرة',price:6000,img:'images/pizza-veggie.png'},
+  {id:'pizza-pepperoni',category:'pizza',name:'بيتزا بيبروني',desc:'عجينة البيتزا، صلصة البيتزا، جبنة موزاريلا، فلفل، فطر، زيتون، طماطم، ذرة، بيبروني',price:6000,img:'images/pizza-pepperoni.png'},
+  {id:'pizza-margherita',category:'pizza',name:'بيتزا مارغريتا',desc:'عجينة البيتزا، صلصة البيتزا، جبنة موزاريلا',price:5000,img:'images/pizza-margherita.png'},
+  {id:'pizza-cheese',category:'pizza',name:'بيتزا نصف كيلو جبن',desc:'عجينة البيتزا، صلصة البيتزا، كمية مضاعفة من جبنة الموزاريلا',price:15000,img:'images/pizza-cheese.webp'},
+
+  {id:'dinner-3',category:'kentucky',name:'دنر ميل - 3 قطع',desc:'كنتاكي، 3 خبز زبدة، فنكر، ثومية، كول سلو',price:8000,img:'images/dinner-3.jpg'},
+  {id:'dinner-5',category:'kentucky',name:'دنر ميل - 5 قطع',desc:'كنتاكي، 4 خبز زبدة، فنكر، 2 ثومية، كول سلو',price:12000,img:'images/dinner-5.jpg'},
   {id:'bucket-9',category:'kentucky',name:'باكيت ميل - 9 قطع',desc:'كنتاكي، 7 خبز زبدة، فنكر، 3 ثومية، 2 كول سلو',price:19000,badge:'الأكثر طلباً',img:'images/bucket-9.jpg'},
-  {id:'dinner-3',category:'kentucky',name:'دنر ميل - 3 قطع',desc:'كنتاكي، خبز زبدة، فنكر، ثومية، كول سلو',price:8000,img:'images/dinner-3.jpg'},
-  {id:'nashville',category:'kentucky',name:'ناشفيل ميل',desc:'قطعتان جكن ناشفيل، ناشفيل فرايز، خبز محمص، ثومية، كول سلو',price:10000,img:'images/nashville.jpg'},
-  {id:'bucket-15',category:'kentucky',name:'باكيت ميل - 15 قطعة',desc:'كنتاكي، خبز زبدة، فنكر، 4 ثومية، 3 كول سلو — وجبة عائلية',price:28000,img:'images/bucket-15.jpg'},
+  {id:'bucket-15',category:'kentucky',name:'باكيت ميل - 15 قطعة',desc:'كنتاكي، 12 خبز زبدة، فنكر، 4 ثومية، 3 كول سلو',price:28000,img:'images/bucket-15.jpg'},
+  {id:'bucket-21',category:'kentucky',name:'باكيت ميل - 21 قطعة',desc:'كنتاكي، 15 خبز زبدة، فنكر، 5 ثومية، 4 كول سلو',price:37000,img:'images/bucket-21.jpg'},
+  {id:'nashville',category:'kentucky',name:'ناشفيل ميل',desc:'قطعتان جكن ناشفيل، ناشفيل فرايز، خبز محمص بالزبدة، ثومية، كول سلو، مشروب غازي',price:10000,img:'images/nashville.jpg'},
 
-  {id:'strips-3',category:'strips',name:'ستربس - 3 قطع',desc:'ستربس، خبز زبدة، فنكر، ثومية، كول سلو',price:7000,img:'images/strips-3.jpg'},
-  {id:'strips-6',category:'strips',name:'ستربس - 6 قطع',desc:'ستربس، خبز زبدة، فنكر، ثومية، كول سلو',price:11000,img:'images/strips-6.jpg'},
-  {id:'strips-9',category:'strips',name:'ستربس - 9 قطع',desc:'ستربس، خبز زبدة، فنكر، ثومية، كول سلو',price:15000,img:'images/strips-9.jpg'},
+  {id:'strips-3',category:'strips',name:'ستربس - 3 قطع',desc:'ستربس، 2 خبز زبدة، فنكر، ثومية، كول سلو',price:7000,img:'images/strips-3.jpg'},
+  {id:'strips-4',category:'strips',name:'ستربس - 4 قطع',desc:'ستربس، 3 خبز زبدة، فنكر، ثومية، كول سلو',price:8000,img:'images/strips-4.jpg'},
+  {id:'strips-6',category:'strips',name:'ستربس - 6 قطع',desc:'ستربس، 4 خبز زبدة، فنكر، 2 ثومية، كول سلو',price:11000,img:'images/strips-6.jpg'},
+  {id:'strips-9',category:'strips',name:'ستربس - 9 قطع',desc:'ستربس، 6 خبز زبدة، فنكر، 3 ثومية، 2 كول سلو',price:15000,img:'images/strips-9.jpg'},
+  {id:'strips-12',category:'strips',name:'ستربس - 12 قطعة',desc:'ستربس، 8 خبز زبدة، فنكر، 4 ثومية، 3 كول سلو',price:19000,img:'images/strips-12.jpg'},
 
   {id:'rizo-strips',category:'rizo',name:'ريزو ستربس',desc:'قطع ستربس، رز، صلصة سيكرت، جبن تشيدر سائح، كاتشب',price:5500,badge:'الأكثر طلباً',img:'images/rizo-strips.jpg'},
-  {id:'rizo-burger',category:'rizo',name:'ريزو برغر لحم',desc:'قطع برغر لحم، رز، صلصة سيكرت، جبن تشيدر سائح',price:6000,img:'images/rizo-burger.jpg'},
-  {id:'rizo-kentucky',category:'rizo',name:'ريزو كنتاكي',desc:'قطع كنتاكي، رز، صلصة سيكرت، جبن تشيدر سائح',price:5000,img:'images/rizo-kentucky.jpg'},
+  {id:'rizo-kentucky',category:'rizo',name:'ريزو كنتاكي',desc:'قطع كنتاكي، رز، صلصة سيكرت، جبن تشيدر سائح، كاتشب',price:5000,img:'images/rizo-kentucky.jpg'},
+  {id:'rizo-fried-chicken',category:'rizo',name:'ريزو فرايد جكن',desc:'قطع فرايد جكن، رز، صلصة سيكرت، جبن تشيدر سائح، كاتشب',price:5000,img:'images/rizo-fried-chicken.jpg'},
+  {id:'rizo-burger',category:'rizo',name:'ريزو برغر لحم',desc:'قطع برغر لحم، رز، صلصة سيكرت، جبن تشيدر سائح، كاتشب',price:6000,img:'images/rizo-burger.jpg'},
 
-  {id:'wings-buffalo',category:'wings',name:'أجنحة بافلو - 8 قطع',desc:'أجنحة، فنكر، خبز الزبدة، ثومية، صلصة بافلو الحارة',price:5000,img:'images/wings-buffalo.png'},
-  {id:'wings-bbq',category:'wings',name:'أجنحة باربكيو - 8 قطع',desc:'أجنحة، فنكر، خبز الزبدة، ثومية، صلصة باربكيو',price:5000,img:'images/wings-bbq.png'},
+  {id:'wings-buffalo',category:'wings',name:'أجنحة بافلو - 8 قطع',desc:'أجنحة، فنكر، خبز الزبدة، ثومية، صلصة بافلو',price:5000,img:'images/wings-buffalo.png'},
+  {id:'wings-bbq',category:'wings',name:'أجنحة باربيكيو - 8 قطع',desc:'أجنحة، فنكر، خبز الزبدة، ثومية، صلصة باربكيو',price:5000,img:'images/wings-bbq.png'},
 
-  {id:'pizza-pepperoni',category:'pizza',name:'بيتزا بيبروني',desc:'عجينة، صلصة بيتزا، جبنة موزاريلا، فلفل، فطر، زيتون، بيبروني',price:6000,img:'images/pizza-pepperoni.png'},
-  {id:'pizza-veggie',category:'pizza',name:'بيتزا خضار',desc:'عجينة، صلصة بيتزا، جبنة موزاريلا، فلفل، فطر، زيتون، طماطم، ذرة',price:6000,img:'images/pizza-veggie.png'},
-  {id:'pizza-cheese',category:'pizza',name:'بيتزا نصف كيلو جبن',desc:'عجينة، صلصة بيتزا، كمية مضاعفة من جبنة الموزاريلا',price:15000,img:'images/pizza-cheese.webp'},
+  {id:'fatteh-lays',category:'fatteh',name:'فتة ليز ورق عنب',desc:'ورق عنب، صلصة الفتة، جبس ليز',price:5000,img:'images/fatteh-lays.jpg'},
+  {id:'fatteh-oman',category:'fatteh',name:'فتة عمان ورق عنب',desc:'ورق عنب، صلصة الفتة السبايسي، شيبس عمان، شرائح هالبينو',price:6000,img:'images/fatteh-oman.jpg'},
 
+  {id:'oman-secret',category:'snacks',name:'عمان سيكرت',desc:'قطع ستربس، شيبس عمان، جبن، صلصة سيكرت، شرائح هالبينو',price:5500,img:'images/oman-secret.png'},
+  {id:'cheese-fries',category:'snacks',name:'بطاطا مقلية بالجبن',desc:'صحن فنكر، جبن تشيدر سائح',price:4000,img:'images/cheese-fries.jpg'},
+  {id:'secret-cheese-fries',category:'snacks',name:'سيكرت جيز فرايز',desc:'صحن فنكر، جبن تشيدر سائح، صلصة سيكرت',price:4000,img:'images/secret-cheese-fries.jpg'},
+  {id:'jalapeno-cheese-fries',category:'snacks',name:'هالبينو جيز فرايز',desc:'صحن فنكر، جبن تشيدر سائح، صلصة سيكرت، شرائح هالبينو',price:4500,img:'images/jalapeno-cheese-fries.jpg'},
+  {id:'french-fries',category:'snacks',name:'فرينج فرايز',desc:'صحن فنكر',price:2500,img:'images/french-fries.jpg'},
+
+  {id:'appetizer-small',category:'appetizers',name:'طبق مقبلات صغير',desc:'نوعين من المقبلات',price:3000,img:'images/appetizer-small.png'},
+  {id:'appetizer-medium',category:'appetizers',name:'طبق مقبلات وسط',desc:'خمس أنواع من المقبلات',price:5000,img:'images/appetizer-medium.png'},
+  {id:'appetizer-large',category:'appetizers',name:'طبق مقبلات كبير',desc:'6 أنواع من المقبلات',price:6000,img:'images/appetizer-large.png'},
+  {id:'grape-leaves',category:'appetizers',name:'ورق عنب',desc:'ورق عنب محشي رز، دبس رمان',price:4000,img:'images/grape-leaves.png'},
+
+  {id:'addon-cheddar',category:'addons',name:'جبن تشيدر سائح',desc:'إضافة جبن تشيدر سائح لطبقك',price:500,img:'images/addon-cheddar.jpg'},
+  {id:'addon-butter-bread',category:'addons',name:'خبز زبدة',desc:'قطعة خبز زبدة إضافية',price:250,img:'images/addon-butter-bread.jpg'},
+  {id:'addon-nashville-spice',category:'addons',name:'بهارات ناشفيل سبايسي',desc:'بهارات ناشفيل الحارة المميزة',price:1000,img:'images/addon-nashville-spice.jpeg'},
+  {id:'addon-secret-sauce',category:'addons',name:'سيكرت',desc:'صلصة سيكرت الحصرية',price:500,img:'images/addon-secret-sauce.jpg'},
+  {id:'addon-buffalo-sauce',category:'addons',name:'بافلو',desc:'صلصة بافلو الحارة',price:500,img:'images/addon-buffalo-sauce.jpg'},
+  {id:'addon-garlic-sauce',category:'addons',name:'ثومية',desc:'صلصة الثومية الكلاسيكية',price:500,img:'images/addon-garlic-sauce.jpg'},
+  {id:'addon-mustard',category:'addons',name:'خردل',desc:'صلصة الخردل',price:500,img:'images/addon-mustard.jpg'},
+  {id:'addon-spicy-ketchup',category:'addons',name:'كاتشب حار',desc:'كاتشب بلمسة حارة',price:500,img:'images/addon-spicy-ketchup.jpg'},
+  {id:'addon-bbq-sauce',category:'addons',name:'باربيكيو',desc:'صلصة الباربيكيو المدخنة',price:500,img:'images/addon-bbq-sauce.jpg'},
+  {id:'addon-coleslaw',category:'addons',name:'كول سلو',desc:'طبق كول سلو الطازج',price:1000,img:'images/addon-coleslaw.jpg'},
+  {id:'addon-jalapeno',category:'addons',name:'شرائح هالبينو',desc:'شرائح هالبينو الحارة',price:1000,img:'images/addon-jalapeno.jpg'},
+
+  {id:'kids-baby-hadees',category:'kids',name:'كيدز ميل بيبي هاديز',desc:'بيبي هاديز بوكس، عصير يومي، لعبة أطفال',price:8000,img:'images/kids-baby-hadees.png'},
+  {id:'kids-baby-rizo',category:'kids',name:'كيدز ميل بيبي ريزو',desc:'بيبي ريزو ستربس، عصير يومي، لعبة أطفال',price:8000,img:'images/kids-baby-rizo.png'},
   {id:'kids-cheese',category:'kids',name:'كيدز ميل جيز برغر',desc:'ميني جيز برغر، فنكر، عصير يومي، لعبة أطفال',price:7000,img:'images/kids-cheese.png'},
   {id:'kids-fried',category:'kids',name:'كيدز ميل فرايد جكن',desc:'ميني فرايد جكن، فنكر، عصير يومي، لعبة أطفال',price:6000,img:'images/kids-fried.png'},
 
-  {id:'soda',category:'drinks',name:'المشروبات الغازية',desc:'تشكيلة مشروبات غازية باردة',price:750,img:'images/soda.jpg'},
   {id:'water',category:'drinks',name:'ماء هاديز',desc:'ماء معدني بارد',price:500,img:'images/water.jpg'},
-  {id:'pepsi-can',category:'drinks',name:'بيبسي كان',desc:'علبة بيبسي باردة',price:1500,img:'images/pepsi-can.jpg'}
+  {id:'soda',category:'drinks',name:'المشروبات الغازية',desc:'تشكيلة مشروبات غازية باردة',price:750,img:'images/soda.jpg'},
+  {id:'seven-up-can',category:'drinks',name:'سفن كان',desc:'علبة سفن أب باردة',price:1500,img:'images/seven-up-can.png'},
+  {id:'cola-can',category:'drinks',name:'كولا كان',desc:'علبة كولا باردة',price:1500,img:'images/cola-can.png'},
+  {id:'diet-can',category:'drinks',name:'ديو كان',desc:'علبة مشروب غازي باردة',price:1500,img:'images/diet-can.jpg'},
+  {id:'pepsi-can',category:'drinks',name:'بيبسي كان',desc:'علبة بيبسي باردة',price:1500,img:'images/pepsi-can.jpg'},
+  {id:'mirinda-can',category:'drinks',name:'ميرندا كان',desc:'علبة ميرندا باردة',price:1500,img:'images/mirinda-can.png'}
 
 ];
 
@@ -1158,67 +1239,150 @@ document.addEventListener('DOMContentLoaded', function(){
 <!--
   ============ دليل الصور المطلوبة الكامل / FULL IMAGE MANIFEST ============
   ضع كل هذه الملفات داخل مجلد اسمه images بجانب index.html (بدون أي مجلدات فرعية بداخله).
-  عدد الصور المطلوبة: 38 صورة إجمالاً.
+  عدد الصور المطلوبة: 109 صورة إجمالاً (107 صورة منتج + logo.png + hero-box.jpg).
 
   صور أساسية (2):
   images/logo.png       -> شعار هاديز (مربّع، خلفية شفافة يفضّل PNG)
-  images/hero-box.jpg   -> صورة احترافية لبوكس هاديز تظهر أعلى الصفحة الرئيسية (مربّعة الأبعاد تقريباً)
+  images/hero-box.jpg   -> صورة مشاركة السوشيال ميديا (Open Graph)
 
-  بوكسات هاديز (6):
-  images/jeetos-box.jpg               -> جيتوس بوكس
-  images/hadees-box.png               -> هاديز بوكس
-  images/tabasco-box.jpg              -> تباسكو بوكس
-  images/doritos-box.jpg              -> دوريتوس بوكس
-  images/taco-box.jpg                 -> تاكو بوكس
-  images/oman-box.jpg                 -> عمان بوكس
+  العروض (13):
+  images/offer-giants-bucket.png          -> باكيت الجبابرة
+  images/offer-fried-party-meal.png       -> فرايد بارتي ميل
+  images/offer-illogical.png              -> العرض المو منطقي
+  images/offer-king.jpeg                  -> عرض الملك
+  images/offer-cinema-bucket.png          -> سينما باكيت ميل
+  images/offer-cheese-burger-combo.png    -> جيز برغر كومبو
+  images/offer-twister-box.jpg            -> تويستر بوكس
+  images/offer-yalla-deluxe.png           -> يلا ديلوكس
+  images/offer-fried-chicken-combo.png    -> فرايد جكن كومبو
+  images/offer-triple-mini-fried.png      -> تربل ميني فرايد
+  images/offer-tabasco-fillet.png         -> تباسكو جكن فيليه
+  images/offer-hotdog-combo.png           -> هوت دوغ كومبو
+  images/offer-crispy-wings.png           -> عرض الأجنحة المقرمشة
 
-  البرغر (6):
-  images/big-deluxe.jpg               -> بيج ديلوكس
-  images/cheese-burger.jpg            -> جيز برغر
-  images/big-hadi-meat.jpg            -> بيج هادي لحم
-  images/double-double.jpg            -> دبل دبل
-  images/triple-triple.jpg            -> تربل تربل
-  images/fried-chicken-burger.jpg     -> فرايد جكن
+  بوكسات هاديز (10):
+  images/mini-hadees-box.png              -> بيبي هاديز بوكس
+  images/les-max-box.jpg                  -> ليز ماكس بوكس
+  images/hadees-box.png                   -> هاديز بوكس
+  images/jeetos-box.jpg                   -> جيتوس بوكس
+  images/doritos-box.jpg                  -> دوريتوس بوكس
+  images/oman-box.jpg                     -> عمان بوكس
+  images/tabasco-box.jpg                  -> تباسكو بوكس
+  images/salad-box.png                    -> سلاطة بوكس
+  images/taco-box.jpg                     -> تاكو بوكس
+  images/sahar-box.jpg                    -> صحار بوكس
 
-  الساندويش (4):
-  images/crunchy-twister.jpg          -> كرنجي تويستر
-  images/zinger.jpg                   -> زنجر
-  images/hotdog-bacon.jpg             -> هوت دوغ بيكن
-  images/hotdog-oman.jpg              -> هوت دوغ عمان
+  البرغر (15):
+  images/cheese-burger.jpg                -> جيز برغر
+  images/big-hadi-chicken.jpg             -> بيج هادي جكن
+  images/big-deluxe.jpg                   -> بيج ديلوكس
+  images/big-secret.jpg                   -> بيج سيكرت
+  images/double-double.jpg                -> دبل دبل
+  images/big-hadi-meat.jpg                -> بيج هادي لحم
+  images/swiss-mushroom.jpg               -> سويس آند مشروم
+  images/bbq-steak.jpg                    -> باربكيو ستيك
+  images/jalapeno-double-cheese.jpg       -> هالبينو دبل جيز برغر
+  images/juicy-lucy.jpg                   -> جوسي لوسي
+  images/triple-triple.jpg                -> تربل تربل
+  images/bacon-double-cheese.jpg          -> بيكن دبل جيز برغر
+  images/chicken-fillet.jpg               -> جكن فيليه
+  images/chicken-terminator.jpg           -> جكن ترمينيتور
+  images/fried-chicken-burger.jpg         -> فرايد جكن
 
-  وجبات الكنتاكي (4):
-  images/bucket-9.jpg                 -> باكيت ميل - 9 قطع
-  images/dinner-3.jpg                 -> دنر ميل - 3 قطع
-  images/nashville.jpg                -> ناشفيل ميل
-  images/bucket-15.jpg                -> باكيت ميل - 15 قطعة
+  الساندويش (10):
+  images/hotdog-jeetos.jpg                -> هوت دوغ جيتوس
+  images/hotdog-doritos.jpg               -> هوت دوغ دوريتوس
+  images/hotdog-lays.jpg                  -> هوت دوغ ليز
+  images/hotdog-oman.jpg                  -> هوت دوغ عمان
+  images/hotdog-taco.jpg                  -> هوت دوغ تاكو
+  images/hotdog-crispy.jpg                -> هوت دوغ فنكر مقرمش
+  images/hotdog-bacon.jpg                 -> هوت دوغ بيكن
+  images/twister.jpg                      -> تويستر
+  images/crunchy-twister.jpg              -> كرنجي تويستر
+  images/zinger.jpg                       -> زنجر
 
-  الستربس (3):
-  images/strips-3.jpg                 -> ستربس - 3 قطع
-  images/strips-6.jpg                 -> ستربس - 6 قطع
-  images/strips-9.jpg                 -> ستربس - 9 قطع
+  الوجبات (4):
+  images/meat-box.jpg                     -> ميت بوكس
+  images/secret-box-meal.jpg              -> سيكرت بوكس
+  images/fillet-box.jpg                   -> فيليه بوكس
+  images/snack-box-meal.jpg               -> سناك بوكس
 
-  الريزو (3):
-  images/rizo-strips.jpg              -> ريزو ستربس
-  images/rizo-burger.jpg              -> ريزو برغر لحم
-  images/rizo-kentucky.jpg            -> ريزو كنتاكي
+  البيتزا (5):
+  images/pizza-tawouq.png                 -> بيتزا طاووق
+  images/pizza-veggie.png                 -> بيتزا خضار
+  images/pizza-pepperoni.png              -> بيتزا بيبروني
+  images/pizza-margherita.png             -> بيتزا مارغريتا
+  images/pizza-cheese.webp                -> بيتزا نصف كيلو جبن
+
+  وجبات الكنتاكي (6):
+  images/dinner-3.jpg                     -> دنر ميل - 3 قطع
+  images/dinner-5.jpg                     -> دنر ميل - 5 قطع
+  images/bucket-9.jpg                     -> باكيت ميل - 9 قطع
+  images/bucket-15.jpg                    -> باكيت ميل - 15 قطعة
+  images/bucket-21.jpg                    -> باكيت ميل - 21 قطعة
+  images/nashville.jpg                    -> ناشفيل ميل
+
+  الستربس (5):
+  images/strips-3.jpg                     -> ستربس - 3 قطع
+  images/strips-4.jpg                     -> ستربس - 4 قطع
+  images/strips-6.jpg                     -> ستربس - 6 قطع
+  images/strips-9.jpg                     -> ستربس - 9 قطع
+  images/strips-12.jpg                    -> ستربس - 12 قطعة
+
+  الريزو (4):
+  images/rizo-strips.jpg                  -> ريزو ستربس
+  images/rizo-kentucky.jpg                -> ريزو كنتاكي
+  images/rizo-fried-chicken.jpg           -> ريزو فرايد جكن
+  images/rizo-burger.jpg                  -> ريزو برغر لحم
 
   الأجنحة (2):
-  images/wings-buffalo.png            -> أجنحة بافلو - 8 قطع
-  images/wings-bbq.png                -> أجنحة باربكيو - 8 قطع
+  images/wings-buffalo.png                -> أجنحة بافلو - 8 قطع
+  images/wings-bbq.png                    -> أجنحة باربيكيو - 8 قطع
 
-  البيتزا (3):
-  images/pizza-pepperoni.png          -> بيتزا بيبروني
-  images/pizza-veggie.png             -> بيتزا خضار
-  images/pizza-cheese.webp            -> بيتزا نصف كيلو جبن
+  فتة ورق عنب (2):
+  images/fatteh-lays.jpg                  -> فتة ليز ورق عنب
+  images/fatteh-oman.jpg                  -> فتة عمان ورق عنب
 
-  وجبات الأطفال (2):
-  images/kids-cheese.png              -> كيدز ميل جيز برغر
-  images/kids-fried.png               -> كيدز ميل فرايد جكن
+  السناك (5):
+  images/oman-secret.png                  -> عمان سيكرت
+  images/cheese-fries.jpg                 -> بطاطا مقلية بالجبن
+  images/secret-cheese-fries.jpg          -> سيكرت جيز فرايز
+  images/jalapeno-cheese-fries.jpg        -> هالبينو جيز فرايز
+  images/french-fries.jpg                 -> فرينج فرايز
 
-  المشروبات (3):
-  images/soda.jpg                     -> المشروبات الغازية
-  images/water.jpg                    -> ماء هاديز
-  images/pepsi-can.jpg                -> بيبسي كان
+  المقبلات (4):
+  images/appetizer-small.png              -> طبق مقبلات صغير
+  images/appetizer-medium.png             -> طبق مقبلات وسط
+  images/appetizer-large.png              -> طبق مقبلات كبير
+  images/grape-leaves.png                 -> ورق عنب
+
+  الإضافات (11):
+  images/addon-cheddar.jpg                -> جبن تشيدر سائح
+  images/addon-butter-bread.jpg           -> خبز زبدة
+  images/addon-nashville-spice.jpeg       -> بهارات ناشفيل سبايسي
+  images/addon-secret-sauce.jpg           -> سيكرت
+  images/addon-buffalo-sauce.jpg          -> بافلو
+  images/addon-garlic-sauce.jpg           -> ثومية
+  images/addon-mustard.jpg                -> خردل
+  images/addon-spicy-ketchup.jpg          -> كاتشب حار
+  images/addon-bbq-sauce.jpg              -> باربيكيو
+  images/addon-coleslaw.jpg               -> كول سلو
+  images/addon-jalapeno.jpg               -> شرائح هالبينو
+
+  وجبات الأطفال (4):
+  images/kids-baby-hadees.png             -> كيدز ميل بيبي هاديز
+  images/kids-baby-rizo.png               -> كيدز ميل بيبي ريزو
+  images/kids-cheese.png                  -> كيدز ميل جيز برغر
+  images/kids-fried.png                   -> كيدز ميل فرايد جكن
+
+  المشروبات (7):
+  images/water.jpg                        -> ماء هاديز
+  images/soda.jpg                         -> المشروبات الغازية
+  images/seven-up-can.png                 -> سفن كان
+  images/cola-can.png                     -> كولا كان
+  images/diet-can.jpg                     -> ديو كان
+  images/pepsi-can.jpg                    -> بيبسي كان
+  images/mirinda-can.png                  -> ميرندا كان
 -->
 </body>
 </html>
