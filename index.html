@@ -368,6 +368,9 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
 .footer-links a:hover{color:var(--cream);}
 .footer-contact a{font-weight:800;color:var(--cream);font-size:1.15rem;direction:ltr;text-align:right;}
 .footer-bottom{border-top:1px solid var(--line);padding-block:26px;text-align:center;font-size:0.85rem;color:var(--smoke);}
+.footer-credit-link{display:block;padding:9px 14px;margin:-9px -14px;border-radius:10px;color:var(--smoke);cursor:pointer;text-decoration:underline;text-decoration-color:rgba(var(--flame-rgb),0.45);text-decoration-thickness:1px;text-underline-offset:5px;transition:color 0.25s var(--ease-smooth),background 0.25s var(--ease-smooth),text-decoration-color 0.25s var(--ease-smooth);}
+.footer-credit-link:hover{color:var(--flame-light);background:rgba(var(--flame-rgb),0.09);text-decoration-color:var(--flame-light);}
+.footer-credit-link:focus-visible{color:var(--flame-light);background:rgba(var(--flame-rgb),0.12);}
 
 /* ============ 14. FLOATING BUTTONS ============ */
 .fab-order{position:fixed;bottom:26px;right:26px;z-index:90;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--ember),var(--ember-dark));display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 14px 30px rgba(var(--ember-rgb),0.5);animation:pulse 2.4s ease-in-out infinite;}
@@ -720,7 +723,7 @@ a.app-badge:hover{border-color:var(--flame);transform:translateY(-2px);}
       <p>خدمة توصيل سريعة</p>
     </div>
   </div>
-  <div class="footer-bottom"><p> جميع الحقوق محفوظة | لمجموعة ACM للحلول البرمجية | © <span id="currentYear"></span> </p></div>
+  <div class="footer-bottom"><a class="footer-credit-link" href="https://www.instagram.com/acm.software/" target="_blank" rel="noopener" title="زيارة موقع ACM على Instagram" aria-label="زيارة موقع ACM على Instagram"><p> جميع الحقوق محفوظة | لمجموعة ACM للحلول البرمجية | © <span id="currentYear"></span> </p></a></div>
 </footer>
 
 <a href="tel:7733" class="fab-order" aria-label="اتصل بهاديز">📞</a>
